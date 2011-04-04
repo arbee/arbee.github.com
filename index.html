@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+function testDraw(x,y) {
+	$('#map').html('<div style="position:absolute; top:'+(y-4)+'px; left:'+(x-4)+'px; width:8px; height:8px; background-color:#FFFF00;"></div>');
+}
+$(document).ready(function(){
+	$('#map').click(function(event){
+		var offset = $(this).offset();
+		var xpos = event.pageX - offset.left;
+		var ypos = event.pageY - offset.top;
+		$('#xpos').val(xpos);
+		$('#ypos').val(ypos);
+		testDraw(xpos,ypos);
+		
+	});
+});
+</script>
+</head>
+
+<body>
+<center>
+<form>
+<div id="map" style="position:relative; background-image:url(map_of_italy.jpg); width:466px; height:350px; margin:0 auto;">
+</div>
+<br />Enter these values in your x and y boxes:<br />
+X: <input name="xpos" type="text" id="xpos" /><br />
+Y: <input name="ypos" type="text" id="ypos" /><br />
+<input name="submit" type="submit" value="Submit" />
+</form>
+</center>
+</body>
+</html>
